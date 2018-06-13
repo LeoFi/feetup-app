@@ -1,8 +1,10 @@
 class Export < ApplicationRecord
   belongs_to :shop
 
+  validates_presence_of :name, :time
+
   def self.available_export(time = nil)
-    time ||= Time.zone.now.strftime('%H:%M')
+    time ||= Time.zone.now.strftime('%H:00')
     where(time: time)
   end
 end

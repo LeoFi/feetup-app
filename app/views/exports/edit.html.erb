@@ -1,0 +1,14 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({ title: "Home" });
+    });
+  </script>
+<% end %>
+
+<h1>Editing Export</h1>
+
+<%= render 'form', export: @export %>
+
+<%= link_to 'Show', @export %> |
+<%= link_to 'Back', exports_path %>

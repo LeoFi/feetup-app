@@ -1,0 +1,26 @@
+<%= form_with(model: export, local: true) do |f| %>
+  <% if export.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(export.errors.count, "error") %> prohibited this export from being saved:</h2>
+
+      <ul>
+      <% export.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :time %>
+    <%= f.select :time, 0.upto(24).map { |i| "#{i}:00" }, placeholder: 'hh:mm' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

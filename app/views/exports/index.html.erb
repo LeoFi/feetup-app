@@ -1,0 +1,34 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({ title: "Home" });
+    });
+  </script>
+<% end %>
+
+<h2>Exports</h2>
+<i>All exports are sent to <%= Exporter::HOSTNAME %></i>
+<table>
+  <thead>
+    <tr>
+      <th colspan="">Name</th>
+      <th colspan="">Time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% current_shop.exports.find_each do |export| %>
+      <tr>
+        <td><%= export.name %></td>
+        <td><%= export.time %> everyday</td>
+        <td><%= link_to 'Show', export %></td>
+        <td><%= link_to 'Edit', edit_export_path(export) %></td>
+        <td><%= link_to 'Destroy', export, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "Configure New export", new_export_path %>|
+<%= link_to "Trigger export", trigger_exports_path %>

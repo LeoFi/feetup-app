@@ -1,0 +1,15 @@
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({ title: "Home" });
+    });
+  </script>
+<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<p>Name: <%= @export.name %> </p>
+<p>Exported everyday at <%= @export.time %> UTC</p>
+
+<%= link_to 'Edit', edit_export_path(@export) %> |
+<%= link_to 'Back', exports_path %>
