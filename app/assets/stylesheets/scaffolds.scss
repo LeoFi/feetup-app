@@ -1,16 +1,16 @@
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-family: helvetica;
+  font-size: 15px;
+  line-height: 20px;
   margin: 0;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+  font-family: helvetica;
+  font-size: 15px;
+  line-height: 20px;
 }
 
 pre {
@@ -103,7 +103,7 @@ label {
 
     tbody {
       tr {
-        padding: 10px 0;
+        height: 30px;
       }
 
       td {
