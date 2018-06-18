@@ -10,6 +10,8 @@
   <h1>Exports V.2</h1>
   <i>All exports are sent to <%= Exporter::HOSTNAME %></i>
 </div>
+
+<div class="app_content">
 <table>
   <thead>
     <tr>
@@ -31,6 +33,7 @@
     <% end %>
   </tbody>
 </table>
+</div>
 
 <%= link_to "Configure New export", new_export_path %>|
 <%= link_to "Trigger export", trigger_exports_path %>
