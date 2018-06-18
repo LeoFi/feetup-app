@@ -92,4 +92,24 @@ label {
 
 .app_content {
   padding: 40px;
+
+  table {
+    width: 100%;
+
+    thead {
+      text-align: left;
+
+    }
+
+    tbody {
+      tr {
+        padding: 10px 0;
+      }
+
+      td {
+        padding: 0;
+
+      }
+    }
+  }
 }
