@@ -79,7 +79,6 @@ class Exporter
 
     Net::SFTP.start(HOSTNAME, USERNAME, PORT, password: PASSWORD) do |sftp|
       filename = Time.now.to_datetime.to_s
-      sftp.upload!(file.path, "#{filename}.xml")
       sftp.upload!(file.path, "Testordner/#{filename}.xml")
     end
 
