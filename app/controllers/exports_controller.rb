@@ -54,13 +54,9 @@ class ExportsController < ShopifyApp::AuthenticatedController
 
   protected
 
-  def current_domain
-    @current_domain ||= ShopifyAPI::Shop.current.domain
-  end
-
   def current_shop
-    @current_shop ||= Shop.find_by(shopify_domain: current_domain)
-    # @current_shop||= ShopifyAPI::Shop.current
+    return nil unless session[:shopify]
+    @current_shop ||= Shop.find(session[:shopify])
   end
 
   private
