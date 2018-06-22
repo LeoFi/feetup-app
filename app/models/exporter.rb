@@ -4,6 +4,7 @@ require 'tempfile'
 class Exporter
   HOSTNAME = ENV['TARGET_EXPORT_HOST']
   USERNAME = ENV['TARGET_EXPORT_USERNAME']
+  PORT = ENV['TARGET_EXPORT_PORT']
   PASSWORD = ENV['TARGET_EXPORT_PASSWORD']
 
   def initialize(exports = [])
@@ -76,7 +77,7 @@ class Exporter
     file.write(payload)
     file.close
 
-    Net::SFTP.start(HOSTNAME, USERNAME, password: PASSWORD) do |sftp|
+    Net::SFTP.start(HOSTNAME, USERNAME, PORT, password: PASSWORD) do |sftp|
       filename = Time.now.to_datetime.to_s
       sftp.upload!(file.path, "#{filename}.xml")
       sftp.upload!(file.path, "Testordner/#{filename}.xml")
